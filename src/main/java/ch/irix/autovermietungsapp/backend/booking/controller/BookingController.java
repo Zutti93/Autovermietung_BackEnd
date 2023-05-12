@@ -21,7 +21,7 @@ public class BookingController {
         return ResponseEntity.ok(bookingService.getAllBookings());
     }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public ResponseEntity<Booking> getBookingById(@PathVariable Long id){
         Optional<Booking> booking = bookingService.getBookingById(id);
         return booking.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());

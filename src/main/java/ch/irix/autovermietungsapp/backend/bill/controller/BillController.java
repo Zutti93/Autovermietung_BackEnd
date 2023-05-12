@@ -21,7 +21,7 @@ public class BillController {
         return ResponseEntity.ok(billService.getAllBills());
     }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public ResponseEntity<Bill> getBillById(@PathVariable Long id) {
         Optional<Bill> bill = billService.getBillById(id);
         return bill.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
